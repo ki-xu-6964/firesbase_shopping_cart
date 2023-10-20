@@ -1,0 +1,115 @@
+
+
+.top-right {
+  position: fixed;
+  top: 0;
+  right: 0;
+  
+
+}
+
+
+.btn-blue {
+  position: relative;
+  left: 0%;
+  right: 0.43%;
+  top: 0%;
+  bottom: 0.55%;
+  width: 113px;
+  height: 42px;
+  background: #2068A8;
+  box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.06);
+}
+
+
+/* Rectangle 1 */
+
+.checkout-btn{
+  position: flex-end;
+  width: 197px;
+  height: 65px;
+  top: 0px;
+  margin-right:20px;
+  float: right;
+  bottom: 0.55%;
+  background: #c9c9b4;
+  border: 2px #c7c7c1;
+  color: white
+}
+
+.add-cart-btn{
+  position: relative;
+  width: 100px;
+  height: 20px;
+  left: 23px;
+  top: 0px;
+  bottom: 0.55%;
+  background: #c9c9b4;
+  border: 2px #c7c7c1;
+  color: white;
+  font-size: 10px
+}
+
+
+.modal-checkout-btn{
+  position: relative;
+  height: 45px;
+  top:0px;
+  background: #c9c9b4;
+  border: 2px #c7c7c1;
+  color: white;
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 10px;
+  }
+
+.add-item-btn{
+  position: relative;
+  width: 100px;
+  height: 20px;
+  left: -85px;
+  top: 0px;
+  bottom: 0.55%;
+  background: #c9c9b4;
+  border: 2px #c7c7c1;
+  color: white;
+  font-size: 10px
+  }
+
+
+
+.remove-btn {
+  margin-top: 13px;
+  background: #c9c9b4;
+  color: rgb(98, 84, 54);
+  border: 2px solid #c0c0a8;
+}
+
+.modal-fixed {
+  height: 100px;
+}
+
+.modal-total-btn{
+  position: relative;
+  height: 45px;
+  top:0px;
+  background: #c9c9b4;
+  border: 2px #c7c7c1;
+  color: white;
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 10px;
+  margin-bottom: 30px;
+  }
+
+
+  .added-to-cart{
+    position: relative;
+    width: 100px;
+    height: 20px;
+    left: 43px;
+    top: 0px;
+    bottom: 0.55%;
+    color: #c9c9b4;
+    font-size: 12px
+  }
