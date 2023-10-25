@@ -1,9 +1,9 @@
 import React from 'react'
-import { cart, useCarts } from './cartContext'
-import { shopData } from './products/shopData'
+import { cart, useCarts } from '../contexts/cartContext'
+import { shopData } from '../products/shopData'
 import { Card } from 'react-bootstrap'
-import './products/productCart.css'
-import ProductCard from './products/ProductCard'
+import '../products/productCart.css'
+import ProductCard from '../products/ProductCard'
 
 
 export function Womens() {

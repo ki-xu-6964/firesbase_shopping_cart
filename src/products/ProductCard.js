@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Card, Container } from 'react-bootstrap';
 import './productCart.css'
-import { useCarts } from '../cartContext';
+import { useCarts } from '../contexts/cartContext';
 
 
 

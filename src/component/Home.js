@@ -1,7 +1,7 @@
 import React, {useState, TextInput} from 'react';
-import ProductCard from './products/ProductCard';
-import { img_files } from './products/shopData'; 
-import './styles/homepage.css'
+import ProductCard from '../products/ProductCard';
+import { img_files } from '../products/shopData'; 
+import '../styles/homepage.css'
 import { Link } from 'react-router-dom';
 
 

@@ -2,14 +2,14 @@ import { Link, Route, Routes } from "react-router-dom";
 import { useState } from 'react';
 import { Modal,  Button, Container } from "react-bootstrap";
 
-
-import {Womens} from './Womens';
-import Home from './Home';
+import {Womens} from './component/Womens';
+import Home from './component/Home';
 import  "./styles/buttonStyle.css"
-import { useCarts } from './cartContext';
+import { useCarts } from './contexts/cartContext';
 import './styles/navbar.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Signup from "./component/signup";
+import { AuthProvider } from "./contexts/AuthContext";
 
 function App() {
 
@@ -25,11 +25,9 @@ function App() {
     setviewModal(false)
   
   
-
-
   return (
     <>
-
+    <AuthProvider>
 
       <ul>
       <li className='nav-item'>
@@ -37,6 +35,9 @@ function App() {
       </li>
       <li>
         <Link to="/womens">Womens</Link>
+      </li>
+      <li>
+        <Link to="/signup">Sign up</Link>
       </li>
       </ul>
 
@@ -69,12 +70,13 @@ function App() {
 
     <div className='grid-item-2'>
     <Routes>
-    <Route path="/" element={<Home />} />
+    <Route path="/" element={<Home/>} />
     <Route path="/womens" element={<Womens/>} />
+    <Route path="/signup" element={<Signup/>} />
     </Routes>
     </div>
 
-
+    </AuthProvider>
     </>
   );
 }

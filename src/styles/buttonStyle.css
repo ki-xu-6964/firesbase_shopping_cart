@@ -44,6 +44,7 @@
   left: 23px;
   top: 0px;
   bottom: 0.55%;
+  border-radius: 10px;
   background: #c9c9b4;
   border: 2px #c7c7c1;
   color: white;
@@ -83,6 +84,7 @@
   background: #c9c9b4;
   color: rgb(98, 84, 54);
   border: 2px solid #c0c0a8;
+  border-radius: 10px;
 }
 
 .modal-fixed {
@@ -112,4 +114,14 @@
     bottom: 0.55%;
     color: #c9c9b4;
     font-size: 12px
+  }
+
+  .signup_btn{
+    position: relative;
+    background: #c9c9b4;
+    border: 2px #c7c7c1;
+    height: 40px;
+    border-radius: 10px;
+    color: #fdfdf7;
+    margin: 15px 0px 5px ;
   }
