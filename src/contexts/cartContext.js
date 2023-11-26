@@ -1,7 +1,7 @@
 import { useContext, createContext, useState } from "react";
 import React from 'react'
 import useLocalStorage from "../useLocalStorage";
- const testContext = createContext();
+const testContext = createContext();
 
 export function useCarts(){
   return useContext(testContext)

@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { Card, Form, Button, Alert, Container } from 'react-bootstrap'
 import { useAuth }  from '../contexts/AuthContext';
-
+import {  navigate } from '@reach/router';
+import { Link } from 'react-router-dom';
 
 
 export default function Signup() {
@@ -38,6 +39,9 @@ export default function Signup() {
     
   }
 
+  function handeClick(){
+    navigate('/login')
+  }
 
   return (
     <>
@@ -49,7 +53,7 @@ export default function Signup() {
     <Card>
     <Card.Body>
     <h2 className = "text-centre mb-4">Sign Up</h2>
-     {currentUser && currentUser.email}
+   
     {error && <Alert variant="danger">{error}</Alert>}
     <Form onSubmit={handleSubmit}>
         <Form.Group id="email">
@@ -66,6 +70,8 @@ export default function Signup() {
         </Form.Group>        
         
         <button disabled={loading} className = "w-100 signup_btn" type="submit">Sign Up</button>
+       
+        <Link className='login-link' to='/login'>Already have an account?</Link>
         
     </Form>
     </Card.Body>

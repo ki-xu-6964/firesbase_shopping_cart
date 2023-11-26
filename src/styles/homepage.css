@@ -17,3 +17,7 @@ color: rgb(255, 255, 255);
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+  .login-link{
+    color: rgb(103, 61, 9);
+  }

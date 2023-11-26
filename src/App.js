@@ -1,7 +1,7 @@
 import { Link, Route, Routes } from "react-router-dom";
 import { useState } from 'react';
 import { Modal,  Button, Container } from "react-bootstrap";
-
+import Login from "./component/login";
 import {Womens} from './component/Womens';
 import Home from './component/Home';
 import  "./styles/buttonStyle.css"
@@ -9,7 +9,15 @@ import { useCarts } from './contexts/cartContext';
 import './styles/navbar.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Signup from "./component/signup";
-import { AuthProvider } from "./contexts/AuthContext";
+import { useAuth } from "./contexts/AuthContext";
+import { updateCurrentUser } from "firebase/auth";
+import { useFire } from "./contexts/firebaseContext";
+import { db } from "./component/firestore";
+import { collection, doc, getDoc } from "firebase/firestore";
+import {signInAnonymously } from "firebase/auth";
+import { auth } from "./firebase/firebase"
+import {setDoc} from "firebase/firestore"; 
+
 
 function App() {
 
@@ -17,6 +25,8 @@ function App() {
   
   const [total, setTotal] = useState(0);
   const {cart, RemoveFromCart, getTotal} = useCarts();
+  const {currentUser, logout, uid, user, log_anon} = useAuth();
+  const {addToUser, addToAnon} = useFire();
 
   const showModal = () =>
     setviewModal(true)
@@ -24,11 +34,52 @@ function App() {
     const hideModal = () => 
     setviewModal(false)
   
-  
+   
+  async function getCollection(){
+    try{
+      const shopRef = collection(db, "shopping_cart");
+    const userRef = doc(db, "shopping_cart", uid)
+    const docSnap = await getDoc(userRef)
+    console.log(docSnap.data())
+  }catch(e){
+    console.log(e)
+  }
+}
+
+ async function addToFire(){
+    if (currentUser){
+     await addToUser()
+
+  }else {
+      //DO ASYNC AWAIT , SIGN IN USER AS ANON THEN ADD TO ANONC CART 
+      const userCredential = await signInAnonymously(auth);
+      const user = userCredential.user;
+      console.log(user.uid); 
+     /* try {
+        await setDoc(doc(db, "shopping_cart", user.uid), {cart});
+          console.log("Item added to user's cart!");
+      } catch (error) {
+          console.error("Error adding to user's cart: ", error);
+      }*/
+    }
+  }
+
+
+  function checkUser(){
+    if (currentUser){
+    console.log("user is logged in "+currentUser.uid)
+
+  }else {
+
+    console.log("No user present")
+  }
+}
+
+
+
   return (
     <>
-    <AuthProvider>
-
+    
       <ul>
       <li className='nav-item'>
         <Link className='nav-link-active' to="/">Home</Link>
@@ -40,11 +91,14 @@ function App() {
         <Link to="/signup">Sign up</Link>
       </li>
       </ul>
-
-   
+      {currentUser&& 
+      <p onClick={logout} className="logout">Logout</p>
+      }
     <div className='grid-item-1'>
     <button onClick={showModal} className='checkout-btn'>View Cart</button>
     </div>
+   
+  
     <Modal size="sm" show= {viewModal} onHide={hideModal}   > 
     <div className='modal-checkout-btn'> SHOPPING CART</div>
    
@@ -57,42 +111,34 @@ function App() {
       <div>Item: {item.name}</div>
       <div>Price: ${item.price}</div>
       <div>Quantity: {item.quantity}</div>
-      <button onClick={()=> RemoveFromCart(item)} className='remove-btn'> remove from cart</button>
+      <button onClick={()=> RemoveFromCart(item)} className='remove-btn'>Remove</button>
       </div>
       </div> 
      
       </>  
        
       )}
-        
-    <div className='modal-total-btn'> Item Total {getTotal()} </div>
+
+  <div className="flex-container">
+      <div className='modal-total-btn'> Item Total {getTotal()} </div>
+      <button className="checkout" onClick={checkUser}>Checkout</button>
+  </div>
+  <button className="checkout" onClick={addToFire} >test</button>
     </Modal>
 
     <div className='grid-item-2'>
     <Routes>
-    <Route path="/" element={<Home/>} />
-    <Route path="/womens" element={<Womens/>} />
-    <Route path="/signup" element={<Signup/>} />
+      <Route path="/" element={<Home/>} />
+      <Route path="/womens" element={<Womens/>} />
+      <Route path="/signup" element={<Signup/>} />
+      <Route path="/login" element={<Login/>} /> 
     </Routes>
     </div>
 
-    </AuthProvider>
+    
     </>
   );
 }
 
 export default App;
 
-
-
-/*
-    <div>cart: {points}</div>
-    <Button onClick={addToCart}> Add Some Points!</Button>
-*/
-
-
-/* STYLING THE PRODUCTS
-
-https://codesandbox.io/s/usereducer-hook-starter-wl8gc?file=/src/ProductCard.js
-
-*/

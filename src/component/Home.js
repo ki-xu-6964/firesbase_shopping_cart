@@ -15,7 +15,7 @@ export default function Home_test() {
     <div className='container'>
     <Link to='/womens'>
     <img src={img_files}/>
-    <text className='centered shop-text'>shop now</text>
+    <p className='centered shop-text'>shop now</p>
     </Link>
     </div>
     </>

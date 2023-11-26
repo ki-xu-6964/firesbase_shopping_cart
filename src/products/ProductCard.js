@@ -33,10 +33,13 @@ export default function ProductCard(props) {
         <Card.Text className='card-price'>
         ${price}
         </Card.Text>
+        <div className='flex-container-cart'>
         <button onClick={()=>cartFunction()}  className='add-cart-btn' >Add to Cart </button>
         { message &&
-        <text className='added-to-cart'>Added to cart!</text>
+        <p className='added-to-cart'>Added to cart!</p>
         }
+        </div>
+        
       </Card.Body>
       </Card>
       

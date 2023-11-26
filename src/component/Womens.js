@@ -19,11 +19,11 @@ export function Womens() {
   return (
     <>
 
-    <div className='grid-container card-img-top'>
+<div className='grid-container p'>
       
       {shopData.map((data, index) => (
-      <div className='grid-item-1'>
-      <ProductCard data={data}>
+      <div className='grid-item-1'  key={data.productId}>
+      <ProductCard data={data} >
 
       </ProductCard>
       </div>

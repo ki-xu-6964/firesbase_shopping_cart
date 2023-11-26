@@ -25,11 +25,12 @@
 /* Rectangle 1 */
 
 .checkout-btn{
-  position: flex-end;
+  position: absolute; 
+  right: 0;
   width: 197px;
-  height: 65px;
+  height: 52px;
   top: 0px;
-  margin-right:20px;
+ 
   float: right;
   bottom: 0.55%;
   background: #c9c9b4;
@@ -42,8 +43,7 @@
   width: 100px;
   height: 20px;
   left: 23px;
-  top: 0px;
-  bottom: 0.55%;
+  top: 5px;
   border-radius: 10px;
   background: #c9c9b4;
   border: 2px #c7c7c1;
@@ -85,6 +85,9 @@
   color: rgb(98, 84, 54);
   border: 2px solid #c0c0a8;
   border-radius: 10px;
+  height: 30px;
+  width: 70px;
+  
 }
 
 .modal-fixed {
@@ -94,14 +97,15 @@
 .modal-total-btn{
   position: relative;
   height: 45px;
-  top:0px;
+
   background: #c9c9b4;
   border: 2px #c7c7c1;
   color: white;
-  text-align: center;
-  margin-top: 30px;
+  text-align: left;
+  padding-left: 15px;
+
   padding-top: 10px;
-  margin-bottom: 30px;
+  
   }
 
 
@@ -109,12 +113,11 @@
     position: relative;
     width: 100px;
     height: 20px;
-    left: 43px;
-    top: 0px;
-    bottom: 0.55%;
+    top: 13px;
     color: #c9c9b4;
     font-size: 12px
   }
+
 
   .signup_btn{
     position: relative;
@@ -125,3 +128,40 @@
     color: #fdfdf7;
     margin: 15px 0px 5px ;
   }
+
+  .logout{
+    position: absolute; 
+    right: 250px;
+    top: 14px;
+    font: 50px;
+    cursor: pointer;
+  
+    color: rgb(255, 255, 255)
+    
+  }
+
+  .checkout{
+   position:relative;
+    background: #585041;
+    color: #fdfdfe;
+    border: 2px solid #585041;
+    border-radius: 10px;
+    height: 30px;
+    width: 90px;
+    font-size: 15px;
+    margin-right: 10px;
+  }
+
+  .flex-container {
+    display: flex;
+    background: #c9c9b4;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .flex-container-cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
