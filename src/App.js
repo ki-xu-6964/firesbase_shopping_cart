@@ -46,6 +46,9 @@ function App() {
   }
 }
 
+
+
+
  async function addToFire(){
     if (currentUser){
      await addToUser()
@@ -55,25 +58,18 @@ function App() {
       const userCredential = await signInAnonymously(auth);
       const user = userCredential.user;
       console.log(user.uid); 
-     /* try {
+     try {
         await setDoc(doc(db, "shopping_cart", user.uid), {cart});
           console.log("Item added to user's cart!");
       } catch (error) {
           console.error("Error adding to user's cart: ", error);
-      }*/
+      }
     }
   }
 
+  
 
-  function checkUser(){
-    if (currentUser){
-    console.log("user is logged in "+currentUser.uid)
 
-  }else {
-
-    console.log("No user present")
-  }
-}
 
 
 
@@ -121,7 +117,10 @@ function App() {
 
   <div className="flex-container">
       <div className='modal-total-btn'> Item Total {getTotal()} </div>
-      <button className="checkout" onClick={checkUser}>Checkout</button>
+     {currentUser? 
+      <button className="checkout" >Checkout</button>:
+      <button className="checkout" >Continue as guest </button>
+     }
   </div>
   <button className="checkout" onClick={addToFire} >test</button>
     </Modal>

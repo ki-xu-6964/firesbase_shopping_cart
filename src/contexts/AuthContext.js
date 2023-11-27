@@ -10,6 +10,7 @@ export  function useAuth() {
 
 export function AuthProvider( {children} ) {
     const [currentUser, setCurrentUser] = useState()
+    const [anonUser, setAnonUser] = useState()
     const [loading, setLoading] = useState(true)
     const [uid, setUid] = useState();
 
@@ -49,12 +50,20 @@ export function AuthProvider( {children} ) {
         const unsubscribe = auth.onAuthStateChanged(user=>{
           
             console.log("Authentication state changed:", user);
-            
-            setCurrentUser(user)
-            if (user!=null){
+            if (user!=null && user.isAnonymous==false){
+              setCurrentUser(user)
+              setUid(user.uid)  
+          } else if (user != null && user.isAnonymous == true){
+            setAnonUser(user)
             setUid(user.uid)
+          } else {
+            setCurrentUser(user)
+            setUid(null)
+          }
+
+          
             
-        }
+            
         if (user==null){
           console.log('uid is null')
         }
