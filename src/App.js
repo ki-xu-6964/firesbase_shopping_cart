@@ -67,7 +67,23 @@ function App() {
     }
   }
 
+  async function addToUserCart(){
+      await addToUser()
+    setviewModal(false);
+  }
   
+  async function addToAnonCart(){
+      const userCredential = await signInAnonymously(auth);
+      const user = userCredential.user;
+      console.log(user.uid); 
+      try {
+        await setDoc(doc(db, "anon_cart", user.uid), {cart});
+          console.log("Item added to anonymous cart!");
+      } catch (error) {
+          console.error("Error adding to anonymous cart: ", error);
+      }
+      setviewModal(false);
+  }
 
 
 
@@ -118,11 +134,11 @@ function App() {
   <div className="flex-container">
       <div className='modal-total-btn'> Item Total {getTotal()} </div>
      {currentUser? 
-      <button className="checkout" >Checkout</button>:
-      <button className="checkout" >Continue as guest </button>
+      <button className="checkout" onClick={addToUserCart}>Checkout</button>:
+      <button className="checkout-guest" onClick={addToAnonCart} >Continue as guest </button>
      }
   </div>
-  <button className="checkout" onClick={addToFire} >test</button>
+  
     </Modal>
 
     <div className='grid-item-2'>
