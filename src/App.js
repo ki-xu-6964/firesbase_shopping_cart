@@ -62,7 +62,7 @@ function App() {
         await setDoc(doc(db, "shopping_cart", user.uid), {cart});
           console.log("Item added to user's cart!");
       } catch (error) {
-          console.error("Error adding to user's cart: ", error);
+          console.error("Error adding to users cart: ", error);
       }
     }
   }
