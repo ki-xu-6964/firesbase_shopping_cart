@@ -5,6 +5,9 @@ Preview of App:
 
 App demo: https://firesbase-shopping-cart.vercel.app/
 
+Sign up for a user account, Otherwise proceed to checkout as a guest
+
+
 This project was built using ReactJS
 
 Shopping cart function was built using react hooks
