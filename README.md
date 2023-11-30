@@ -1,9 +1,9 @@
 
 Preview of App:
+![Screen Shot 2023-11-30 at 9 30 51 pm](https://github.com/ki-xu-6964/firesbase_shopping_cart/assets/119022603/305319a3-8ad3-44d7-a0c4-67478c4d4971)
 
-![Screen Shot 2023-06-28 at 8 42 35 pm](https://github.com/ki-xu-6964/shopping_app/assets/119022603/8b1d4030-5e41-4edc-85f4-f362c25190e2)
 
-App demo: https://shopping-app-git-main-ki-xu-6964.vercel.app/
+App demo: https://firesbase-shopping-cart.vercel.app/
 
 This project was built using ReactJS
 
